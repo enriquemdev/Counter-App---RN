@@ -6,6 +6,8 @@ import FAB from "./components/FAB";
 export default function App() {
   const [count, setCount] = useState(0);
 
+  const setZero = () => setCount(0);
+
   return (
     <View style={styles.container}>
       <Text style={styles.counter}>{count}</Text>
@@ -18,9 +20,16 @@ export default function App() {
       </Pressable> */}
 
       <FAB
+        label="-1"
+        onPress={() => setCount((current) => current - 1)}
+        onLongPress={setZero}
+        position="left"
+      />
+
+      <FAB
         label="+1"
         onPress={() => setCount((current) => current + 1)}
-        onLongPress={() => setCount(0)}
+        onLongPress={setZero}
         position="right"
       />
 
